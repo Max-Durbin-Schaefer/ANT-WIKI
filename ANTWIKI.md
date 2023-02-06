@@ -15,9 +15,9 @@ General ***functions*** can require **Areas** with specific equipment and servic
 
 | Area      | Function | Function : Subfunction breakdown
 | ----------- | ----------- |---------|
-| SCP      | Picking/Shipping, Replenishment (De-Layering)  |  - Retrieving Cases (Picking)<br>- Storing Cases (Replenishment)
-| SCS      | Picking/Shipping, Replenishment (De-Trash)      |  - Retrieving Inners (Picking)<br> -  Storing Inners (Replenishment)
-| ASRS (HBW)      | Receiving, Picking/Shipping (only with shipper pallets)       | - Storing Pallets (Receiving) <br> - Retrieving Shipper Pallets (Picking) <br> - Retrieving Pallets (Replenishment) 
+| SCP      | Picking/Shipping <br> Replenishment (De-Layering)  |  - Retrieving Cases (Picking)<br>- Storing Cases (Replenishment)
+| SCS      | Picking/Shipping <br> Replenishment (De-Trash)      |  - Retrieving Inners (Picking)<br> -  Storing Inners (Replenishment)
+| ASRS (HBW)      | Receiving <br> Picking/Shipping (only with shipper pallets) <br> Replenishment (De-Trash or De-Layering)      | - Storing Pallets (Receiving) <br> - Retrieving Shipper Pallets (Picking) <br> - Retrieving Pallets (Replenishment) 
 | Shipping      | Picking/Shipping       |  N/A?
 | Receiving      | Receiving       |    N/A?
 
