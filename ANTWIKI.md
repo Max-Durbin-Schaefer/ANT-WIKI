@@ -13,13 +13,13 @@ General ***functions*** are facilitated by the subfunctions [Storage](./Storage/
 
 General ***functions*** can require **Areas** with specific equipment and services to specialize in one function. These **Areas** made to fit specific ***functions*** can be divided into..
 
-| Area      | Function |
-| ----------- | ----------- |
-| SCP      | Picking/Shipping, Replenishment (De-Layering)     |
-| SCS      | Picking/Shipping, Replenishment (De-Trash)      |
-| ASRS (HBW)      | Receiving, Picking/Shipping (only with shipper pallets)       |
-| Shipping      | Picking/Shipping       |
-| Receiving      | Receiving       |
+| Area      | Function | Function : Subfunction breakdown
+| ----------- | ----------- |---------|
+| SCP      | Picking/Shipping, Replenishment (De-Layering)  |  - Retrieving Cases (Picking)<br>- Storing Cases (Replenishment)
+| SCS      | Picking/Shipping, Replenishment (De-Trash)      |  - Retrieving Inners (Picking)<br> -  Storing Inners (Replenishment)
+| ASRS (HBW)      | Receiving, Picking/Shipping (only with shipper pallets)       | - Storing Pallets (Receiving) <br> - Retrieving Shipper Pallets (Picking) <br> - Retrieving Pallets (Replenishment) 
+| Shipping      | Picking/Shipping       |  N/A?
+| Receiving      | Receiving       |    N/A?
 
 
 
