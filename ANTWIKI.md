@@ -7,24 +7,27 @@ Ant is a system ran by Schaefer that communicates with [MCL HOST](./MCLHOST/MCLH
 
 ![Alt Text](AntAndSurroundingSystems.png)
 
-These regular ***functions*** were broken down into [Receiving](./Receiving/Receiving.md)(both a function and area), [Storage](./Storage/Storage.md), [Replenishment](./Replenishment/Replenishment.md), and [Retrieval](./Retrieval/Retrieval.md). 
+These general ***functions*** can be broken down into [Receiving](./Receiving/Receiving.md)(both a warehouse function and area), [Replenishment](./Replenishment/Replenishment.md), and [Picking/Shipping](./Picking_Shipping/Picking_Shipping.md).
 
+General ***functions*** are facilitated by the subfunctions [Storage](./Storage/Storage.md) and [Retrieval](./Retrieval/Retrieval.md). Example: [Replenishment](./Replenishment/Replenishment.md) for [SCP](./Areas/SCP/SCP.md) requires that there is a [retrieval](./Retrieval/Retrieval.md) order for stock on a pallet in [HBW(ASRS)](./Areas/HBW.md) to come to [De-Layering](./Areas/SCP/De-Layering/De-Layering.md) and that a [storage](./Storage/Storage.md) order later tells that tray with De-layered stock to go to a [SCP](./Areas/SCP/SCP.md) storage location.
 
+General ***functions*** can require **Areas** with specific equipment and services to specialize in one function. These **Areas** made to fit specific ***functions*** can be divided into..
 
-Each of these ***functions*** are different from one another and require distinct **Areas** with specialized equipment and services. These **Areas** made to fit specific ***functions*** can be divided into..
-
-| Area      | Warehouse Function |
+| Area      | Function |
 | ----------- | ----------- |
-| SCP      | Retrieval       |
-| SCS      | Retrieval       |
-| ASRS      | Storage       |
-| Shipping      | N/A (idk?)       |
+| SCP      | Picking/Shipping, Replenishment (De-Layering)     |
+| SCS      | Picking/Shipping, Replenishment (De-Trash)      |
+| ASRS (HBW)      | Receiving, Picking/Shipping (only with shipper pallets)       |
+| Shipping      | Picking/Shipping       |
 | Receiving      | Receiving       |
-| De-Trash      | Replenishment       |
-| De-layering      | Replenishment       | 
+
+
+
 <br>
 
 ![Alt Text](./Areas/AreasOverview.png)
+
+
 <br>
 
 ## System Breakdown
@@ -54,3 +57,4 @@ Ant can be divided into the subsystems [WMS](./WMS/WMS.md), [MFS](./MFS/MFS.md),
 - [WMS](./WMS/WMS.md)
 - [MFS](./MFS/MFS.md)
 - [PLC](./PLC/PLC.md)
+- [Picking/Shipping](./Picking_Shipping/Picking_Shipping.md)
