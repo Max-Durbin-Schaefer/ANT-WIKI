@@ -1,4 +1,4 @@
-too edit the WIKI see the [read me](ReadMe.md)
+to edit the WIKI see the [read me](ReadMe.md)
 # **Ant**
 
 ## Functionality
@@ -25,13 +25,7 @@ Each of these ***functions*** are different from one another and require distinc
 <br>
 
 ![Alt Text](./Areas/AreasOverview.png)
-
-
-
-
-
-
-
+<br>
 
 ## System Breakdown
 
