@@ -9,7 +9,7 @@ The **Receiving** process processes and stores stock from trailers at the [Recei
 Each **trailer** has an **Appointment ID** that breaks down into one or more **PurchaseOrders (PO)'s** (usually one).
 The **PO's** are represented by **"Receiving Orders"** in **ANT** which act as a parent to **"Receiving Order Lines"** which themselves represent a single **Picking Unit**(vendor pallet).
 
-**Stock** arriving with the same **Item ID** will share a **Picking Unit**, there may be one or more picking units if the amount cannot fit on one pallet.
+**Stock** arriving with the same **Item ID** will share a **Receiving Order Line**, there may be one or more ROL's if the amount could not fit on one vendor pallet.
 
 Over the **Receiving** process stock on picking units (vendor pallets) represented as Receiving Order Lines will be Processed and  
 
@@ -22,8 +22,6 @@ Over the **Receiving** process stock on picking units (vendor pallets) represent
                 The Appointment ID is generated and given the status of ‘New’. (RO's have statuses not appointments)
                 The Appointment ID is linked to the Receiving Order, which shows the purchase order (PO).
                 The Receiving Order is also linked to the Receiving Order Lines which show the item and amount that should be received. 
-
-                Appointment ID -> Receiving Order (RO) -> Receiving Order Line (ROL)
 
         3.	
                 The receiving clerks assign an appointment gate to the Appointment ID.
@@ -51,7 +49,9 @@ Over the **Receiving** process stock on picking units (vendor pallets) represent
 
         9.	
                 Once the pallet is placed on the induction line, the vendor barcode is scanned.
-                If the pallet is on a Chep pallet, it will need to go to the Pallet Exchanger to be exchanged for a system pallet and get the system pallet barcode assigned to the load unit.
+                If the pallet is on a Chep pallet, it will need to go to the Pallet Exchanger
+                to be exchanged for a system pallet and get the system pallet barcode 
+                assigned to the load unit.
 
 
 

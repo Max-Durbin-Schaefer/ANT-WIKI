@@ -7,7 +7,7 @@ Ant is a system ran by Schaefer that communicates with [MCL HOST](./MCLHOST/MCLH
 
 ![Alt Text](AntAndSurroundingSystems.png)
 
-These general ***functions*** can be broken down into [Receiving](./Areas/Receiving/Receiving.md)(both a warehouse function and area), [Replenishment](./Replenishment/Replenishment.md), and [Picking/Shipping](./Picking_Shipping/Picking_Shipping.md).
+These general ***functions*** can be broken down into [Receiving](./Receiving/Receiving.md)(both a warehouse function and area), [Replenishment](./Replenishment/Replenishment.md), and [Picking/Shipping](./Picking_Shipping/Picking_Shipping.md).
 
 General ***functions*** are facilitated by the subfunctions [Storage](./Storage/Storage.md) and [Retrieval](./Retrieval/Retrieval.md). Example: [Replenishment](./Replenishment/Replenishment.md) for [SCP](./Areas/SCP/SCP.md) requires that there is a [retrieval](./Retrieval/Retrieval.md) order for stock on a pallet in [HBW(ASRS)](./Areas/HBW.md) to come to [De-Layering](./Areas/SCP/De-Layering/De-Layering.md) and that a [storage](./Storage/Storage.md) order later tells that tray with De-layered stock to go to a [SCP](./Areas/SCP/SCP.md) storage location.
 
