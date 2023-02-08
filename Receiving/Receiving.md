@@ -23,46 +23,50 @@ Statuses are used to track the progress of an appointment. The Receiving Statuse
 5.	Finished – Each line item (ROL,COL) changes to Finished status once the operator completes receiving the item. 
 6.	Closed – When the load is closed, it does not show in ANT.
 
+<br>
 
 ## General Flow of Receiving with Statuses
 
+- These steps should be separated by their status.
+
 1. ### Host Communication (planning)
 
-                The host sends the data to the onsite database. 
+                The host sends the data to the onsite database. (include details about POHDR and PODTL)
 2. ### New
 
-                The Appointment ID is linked to the Receiving Order whose status is new.
+                The Appointment ID is linked to the Receiving Order whose status begins with new.
                 The Receiving Order is also linked to the Receiving Order Lines which show the item and amount that should be received. 
 3. ### Assigned
 
-                The receiving clerks assign an appointment gate to the Appointment ID.
-                Gate 31 is the grocery dock.
-                Gate 10 is the cooler/freezer dock.
-                This changes the appointment id status to ‘Assigned’.
-4.
+                The receiving clerks assign an appointment gate to the Appointment ID which changes the appointment status to 'Assigned'.
+                - Gate 31 is the grocery dock.
+                - Gate 10 is the cooler/freezer dock.
+4. ### Planned (needs work)
 
                 Once the ROL’s are in ‘Assigned’ status, the system can move to ‘Planned’ status.
-5.
+5. ### Planned CONT
 
                 ‘Planned’ status creates the Consolidation Order (CO) and Consolidation Order Line (COL). 
                 Once the PO is planned the CO decides how many pallets are needed to induct the item.
                 The Receivers can start receiving the item after the item reaches the ‘Planned’ status.
-6.
+6. ### Started/Finished
 
                 When the receiver scans the items, the COL’s change status to ‘Started’.
                 When the operator finishes scanning the item the COL changes the status to ‘Finished’.
-7.
+7. ### Started/Finished CONT
 
                 At the end of the receivers flow, they will scan and assign a vendor barcode for the pallet.
 
-        8.	
+8. ### Started/Finished CONT
                 The vendor barcode attaches the load unit to the stock and creates the storage order for the stock items.
 
-        9.	
+9. ### Finished	
                 Once the pallet is placed on the induction line, the vendor barcode is scanned.
                 If the pallet is on a Chep pallet, it will need to go to the Pallet Exchanger
                 to be exchanged for a system pallet and get the system pallet barcode 
                 assigned to the load unit.
+10. ### Closed (will see on consolidation orders, rol's will be deleted here)
+        The status changes to closed after all the ROL's of a RO are in finished. The appointment is deleted?
 
 
 *Question: Reading this like one receiving order line represents one pallet, is that right?*
