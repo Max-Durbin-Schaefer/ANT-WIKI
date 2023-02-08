@@ -7,9 +7,15 @@ The **Receiving** process processes and stores stock from trailers at the [Recei
 # General Receiving
 
 ## Terms
+| Term | Definition |
+|------|------------|
+|**Trailer** | truck that brings stock to receiving area.|
+|**Appointment** | Table for tracking trailer scheduled time, Assigned door. Acts as a parent to **Receiving Order**.|
+|**Receiving Order** | Analogous to **Stops** on loads. Acts as a parent to Receiving Order Line. |
+|
 
 Each **trailer** has an **Appointment ID** that breaks down into one or more **PurchaseOrders (PO)'s** (usually one).
-The **PO's** are represented by **"Receiving Orders"** in **ANT** which act as a parent to **"Receiving Order Lines"** which themselves represent a single **Picking Unit** and **Item ID** combination.
+The **PO's** are represented by **Receiving Orders** in **ANT** which act as a parent to **Receiving Order Lines** which themselves represent a single **Picking Unit** and **Item ID** combination.
 
 **Stock** arriving with the same **Item ID** and **Picking Unit Type** will share a **ROL**
 
@@ -25,9 +31,9 @@ Statuses are used to track the progress of an appointment. The Receiving Statuse
 
 <br>
 
-## General Flow of Receiving with Statuses
+# Flow of Receiving with Statuses
 
-- These steps should be separated by their status.
+<br>
 
 1. ### Host Communication (planning)
 
@@ -47,17 +53,22 @@ Statuses are used to track the progress of an appointment. The Receiving Statuse
 
 4. ### Planned
 
-                Once the ROL’s are in ‘Assigned’ status, Ant can run the planning process through WMSReceiving(creates unloading list) and puts the appointment into ‘Planned’ status automatically.
+                Once the ROL’s are in ‘Assigned’ status, Ant can run the planning process
+                through WMSReceiving(creates unloading list) and puts the appointment into ‘Planned’ status automatically.
+                        
                         - The appointment ID of a PO can be changed up until pallet building.
                 
-                        - process will fail if there are missing item info, wrong gat, or un-updated LU Type Location
+                        - process will fail if there are missing item info, wrong gat, or un-updated LU Type Location.
+                          Process also needs TI/HI, Hazardous, Size/Weight tolerance, free locations.
 
-                The planning process, WMSReceiving, creates the Consolidation Order (CO) and links it to the RO. It also creates the Consolidation order line and links it to the ROL.
+                The planning process, WMSReceiving, creates the Consolidation Order (CO) and links it to the RO.
+                It also creates the Consolidation order line and links it to the ROL.
 
                 Once the PO is planned the CO decides how many pallets are needed to induct the item.
                 The Receivers can start receiving the item after the item reaches the ‘Planned’ status.
 
-                - This process updates wmsOrder and wmsOrderline tables. 
+                - This process updates wmsOrder and wmsOrderline tables.
+                - mixed pallets(needs work here)
 6. ### Started/Finished
 
                 When the receiver scans the items, the COL’s change status to ‘Started’.
@@ -81,9 +92,6 @@ Statuses are used to track the progress of an appointment. The Receiving Statuse
         The status changes to closed after all the ROL's of a RO are in finished. The appointment is deleted?
 
 
-*Question: Reading this like one receiving order line represents one pallet, is that right?* - no, receiving does not give a rol to each pick unit, only a unique pick unit item combination. All pallets with one stock item will be the same. But different from The same item On a case.
-
-![quesitonpic](./doesOneROLRepresentOnePallet.PNG)
 
 
 
