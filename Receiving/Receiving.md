@@ -2,46 +2,57 @@
 
 (also see [Receiving(Area)](/Areas/Receiving/Receiving.md))
 
-# Breakdown
-
 The **Receiving** process processes and stores stock from trailers at the [Receiving](/Areas/Receiving/Receiving.md) Area. 
+
+# General Receiving
+
+## Terms
 
 Each **trailer** has an **Appointment ID** that breaks down into one or more **PurchaseOrders (PO)'s** (usually one).
 The **PO's** are represented by **"Receiving Orders"** in **ANT** which act as a parent to **"Receiving Order Lines"** which themselves represent a single **Picking Unit**(vendor pallet).
 
 **Stock** arriving with the same **Item ID** will share a **Receiving Order Line**, there may be one or more ROL's if the amount could not fit on one vendor pallet.
 
-Over the **Receiving** process stock on picking units (vendor pallets) represented as Receiving Order Lines will be Processed and  
+## Statuses
+Statuses are used to track the progress of an appointment. The Receiving Statuses are first recorded in the RO's.
 
-# General Flow of Receiving
+1.	New – Data has been received from Retalix.
+2.	Assigned – The operator assigns a door to the Appointment ID.
+3.	Planned – Stage that the pallets have been created; items are maintained and ready to be received. 
+4.	Started – Receiving operators start scanning the pallets/case items.
+5.	Finished – Each line item (ROL,COL) changes to Finished status once the operator completes receiving the item. 
+6.	Closed – When the load is closed, it does not show in ANT.
 
-        1.
+
+## General Flow of Receiving with Statuses
+
+1. ### Host Communication (planning)
+
                 The host sends the data to the onsite database. 
+2. ### New
 
-        2.	
-                The Appointment ID is generated and given the status of ‘New’. (RO's have statuses not appointments)
-                The Appointment ID is linked to the Receiving Order, which shows the purchase order (PO).
+                The Appointment ID is linked to the Receiving Order whose status is new.
                 The Receiving Order is also linked to the Receiving Order Lines which show the item and amount that should be received. 
+3. ### Assigned
 
-        3.	
                 The receiving clerks assign an appointment gate to the Appointment ID.
                 Gate 31 is the grocery dock.
                 Gate 10 is the cooler/freezer dock.
                 This changes the appointment id status to ‘Assigned’.
+4.
 
-        4.	
                 Once the ROL’s are in ‘Assigned’ status, the system can move to ‘Planned’ status.
+5.
 
-        5.	
                 ‘Planned’ status creates the Consolidation Order (CO) and Consolidation Order Line (COL). 
                 Once the PO is planned the CO decides how many pallets are needed to induct the item.
                 The Receivers can start receiving the item after the item reaches the ‘Planned’ status.
+6.
 
-        6.	
                 When the receiver scans the items, the COL’s change status to ‘Started’.
                 When the operator finishes scanning the item the COL changes the status to ‘Finished’.
+7.
 
-        7.	
                 At the end of the receivers flow, they will scan and assign a vendor barcode for the pallet.
 
         8.	
@@ -52,6 +63,12 @@ Over the **Receiving** process stock on picking units (vendor pallets) represent
                 If the pallet is on a Chep pallet, it will need to go to the Pallet Exchanger
                 to be exchanged for a system pallet and get the system pallet barcode 
                 assigned to the load unit.
+
+
+*Question: Reading this like one receiving order line represents one pallet, is that right?*
+
+![quesitonpic](./doesOneROLRepresentOnePallet.PNG)
+
 
 
 
