@@ -69,7 +69,7 @@ Statuses are used to track the progress of an appointment. The Receiving Statuse
         The status changes to closed after all the ROL's of a RO are in finished. The appointment is deleted?
 
 
-*Question: Reading this like one receiving order line represents one pallet, is that right?*
+*Question: Reading this like one receiving order line represents one pallet, is that right?* - no, receiving does not give a rol to each pick unit, only a unique pick unit item combination. All pallets with one stock item will be the same. But different from The same item On a case.
 
 ![quesitonpic](./doesOneROLRepresentOnePallet.PNG)
 
