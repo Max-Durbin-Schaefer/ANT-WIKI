@@ -9,9 +9,9 @@ The **Receiving** process processes and stores stock from trailers at the [Recei
 ## Terms
 
 Each **trailer** has an **Appointment ID** that breaks down into one or more **PurchaseOrders (PO)'s** (usually one).
-The **PO's** are represented by **"Receiving Orders"** in **ANT** which act as a parent to **"Receiving Order Lines"** which themselves represent a single **Picking Unit**(vendor pallet).
+The **PO's** are represented by **"Receiving Orders"** in **ANT** which act as a parent to **"Receiving Order Lines"** which themselves represent a single **Picking Unit** and **Item ID** combination.
 
-**Stock** arriving with the same **Item ID** will share a **Receiving Order Line**, there may be one or more ROL's if the amount could not fit on one vendor pallet.
+**Stock** arriving with the same **Item ID** and **Picking Unit Type** will share a **ROL**
 
 ## Statuses
 Statuses are used to track the progress of an appointment. The Receiving Statuses are first recorded in the RO's.
@@ -37,22 +37,34 @@ Statuses are used to track the progress of an appointment. The Receiving Statuse
                 The Appointment ID is linked to the Receiving Order whose status begins with new.
                 The Receiving Order is also linked to the Receiving Order Lines which show the item and amount that should be received. 
 3. ### Assigned
+                When a truck arrives the receiving office should update the status
+                of the appointment ID(start the appointment ID), so that the RF
+                operator does not need to scroll through all appointment ID's.
 
                 The receiving clerks assign an appointment gate to the Appointment ID which changes the appointment status to 'Assigned'.
                 - Gate 31 is the grocery dock.
                 - Gate 10 is the cooler/freezer dock.
-4. ### Planned (needs work)
 
-                Once the ROL’s are in ‘Assigned’ status, the system can move to ‘Planned’ status.
-5. ### Planned CONT
+4. ### Planned
 
-                ‘Planned’ status creates the Consolidation Order (CO) and Consolidation Order Line (COL). 
+                Once the ROL’s are in ‘Assigned’ status, Ant can run the planning process through WMSReceiving(creates unloading list) and puts the appointment into ‘Planned’ status automatically.
+                        - The appointment ID of a PO can be changed up until pallet building.
+                
+                        - process will fail if there are missing item info, wrong gat, or un-updated LU Type Location
+
+                The planning process, WMSReceiving, creates the Consolidation Order (CO) and links it to the RO. It also creates the Consolidation order line and links it to the ROL.
+
                 Once the PO is planned the CO decides how many pallets are needed to induct the item.
                 The Receivers can start receiving the item after the item reaches the ‘Planned’ status.
+
+                - This process updates wmsOrder and wmsOrderline tables. 
 6. ### Started/Finished
 
                 When the receiver scans the items, the COL’s change status to ‘Started’.
                 When the operator finishes scanning the item the COL changes the status to ‘Finished’.
+
+                - If the Receiving office failed to assign an appointment it can be started from the RF device 
+
 7. ### Started/Finished CONT
 
                 At the end of the receivers flow, they will scan and assign a vendor barcode for the pallet.
