@@ -16,10 +16,11 @@ The **Receiving** process processes and stores stock from trailers at the [Recei
 
 ---
 ## **Breakdown**
-Each **trailer** has an **Appointment ID** that breaks down into one or more **PurchaseOrders (PO)'s** (usually one).
-The **PO's** are represented by **Receiving Orders** in **ANT** which act as a parent to **Receiving Order Lines** which represent a single **Picking Unit** and **Item ID** combination.
+Each **trailer** has an **Appointment ID** that breaks down into one or more **PurchaseOrders (PO)'s** (usually one). <br>
+The **PO's** are represented by **Receiving Orders** which act as a parent to **Receiving Order Lines**.<br>
+**Receiving Order Lines** then represent a single **Picking Unit** and **Item ID** combination.
 
-**Stock** arriving with the same **Item ID** and **Picking Unit Type** will share a **ROL** (Two pallets of the same item will share a **ROL**)
+**Stock** arriving with the same **Item ID** and **Picking Unit Type** will share a **ROL** (Two pallets of the same item will share a **ROL**).
 
 ---
 ## **Statuses**
