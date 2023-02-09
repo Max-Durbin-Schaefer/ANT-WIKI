@@ -4,23 +4,25 @@
 
 The **Receiving** process processes and stores stock from trailers at the [Receiving](/Areas/Receiving/Receiving.md) Area into the rest of the warehouse, but mostly into HBW.
 
-## Related Terms
+## **Related Terms**
 | **Term** | **Definition** |
 |------|------------|
-|*Trailer* | truck that brings stock to receiving area.|
-|*Appointment* | Table for tracking trailer scheduled time, Assigned door. Acts as a parent to *Receiving Order*.|
-|*Receiving Order* | Analogous to **Stops** on loads. Acts as a parent to Receiving Order Line. |
+|*Appointment* | Used for tracking a trucks scheduled time and Assigned door. Acts as a parent to *Receiving Order*.|
+|*Receiving Order* | Links to a **Purchase Order** (external). Acts as a parent to Receiving Order Line. |
 | *Receiving Order Line* | Represents an amount of material with the same **item_id** and **pick** unit combination. |
 |*item*| material|
 |*Pick Unit*| A type of either Case or Pallet?|
 |*Stock*| An amount of an item/material associated to one load unit|
 
+---
+## **Breakdown**
 Each **trailer** has an **Appointment ID** that breaks down into one or more **PurchaseOrders (PO)'s** (usually one).
 The **PO's** are represented by **Receiving Orders** in **ANT** which act as a parent to **Receiving Order Lines** which represent a single **Picking Unit** and **Item ID** combination.
 
 **Stock** arriving with the same **Item ID** and **Picking Unit Type** will share a **ROL** (Two pallets of the same item will share a **ROL**)
 
-## Statuses
+---
+## **Statuses**
 Statuses are used to track the progress of an appointment. The Receiving Statuses are first recorded in the RO's.
 
 1.	New – Data has been received from Retalix.
@@ -29,10 +31,9 @@ Statuses are used to track the progress of an appointment. The Receiving Statuse
 4.	Started – Receiving operators start scanning the pallets/case items.
 5.	Finished – Each line item (ROL,COL) changes to Finished status once the operator completes receiving the item. 
 6.	Closed – When the load is closed, it does not show in ANT.
+---
 
-<br>
-
-# Flow of Receiving with Statuses
+## **Flow of Receiving with Statuses**
 
 <br>
 
@@ -125,7 +126,9 @@ Received goods are available for replenishment but are not reserved for shipping
         An item is always bought in multiples of master cases (pick unit CAS or PAL).
         When the user scans a GTIN ANT has to find all order lines for this item with different pick units in all PO’s of the appointment ID. The GTIN can be the same for one item but different item numbers. 
 
+Found in DOW_07_Receiving_workstation..etc
 
+![normal_flow](./normalFlow.PNG)
 
 # Links
 - [ANT](/ANTWIKI.md)
