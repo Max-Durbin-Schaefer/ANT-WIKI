@@ -5,6 +5,8 @@
 The **Receiving** process processes and stores stock from trailers at the [Receiving](/Areas/Receiving/Receiving.md) Area into the rest of the warehouse, but mostly into HBW.
 
 ## **Related Terms**
+<img align="right" width='40%' src="./receivingTables.PNG">
+
 | **Term** | **Definition** |
 |------|------------|
 |*Appointment* | Used for tracking a trucks scheduled time and Assigned door. Acts as a parent to *Receiving Order*.|
@@ -36,65 +38,67 @@ Statuses are used to track the progress of an appointment. The Receiving Statuse
 
 ## **Receiving Status + Process Flow**
 
-<br>
+### **Host Communication (before appointment exists)**
+Host sends the data through MQ as POHDR and PODTL to the onsite database.
+### **New**
+The Appointment ID is linked to the Receiving Order whose status begins with new.
+The Receiving Order is also linked to the Receiving Order Lines which show the item and amount that should be received. 
+### **Assigned**
+When a truck arrives the receiving office should update the status
+of the appointment ID(start the appointment ID), so that the RF
+operator does not need to scroll through all appointment ID's.
 
-### Host Communication (planning)
-                Host sends the data through MQ as POHDR and PODTL to the onsite database.
-### New
-                The Appointment ID is linked to the Receiving Order whose status begins with new.
-                The Receiving Order is also linked to the Receiving Order Lines which show the item and amount that should be received. 
-### Assigned
-                When a truck arrives the receiving office should update the status
-                of the appointment ID(start the appointment ID), so that the RF
-                operator does not need to scroll through all appointment ID's.
+The receiving clerks assign an appointment gate to the Appointment ID which changes the appointment status to 'Assigned'.
+- Gate 31 is the grocery dock.
+- Gate 10 is the cooler/freezer dock.
+### **Planned**
+Once the ROL’s are in ‘Assigned’ status, Ant can run the planning process
+through WMSReceiving(creates unloading list) and puts the appointment into ‘Planned’ status automatically.
+        
+- The appointment ID of a PO can be changed up until pallet building.
 
-                The receiving clerks assign an appointment gate to the Appointment ID which changes the appointment status to 'Assigned'.
-                - Gate 31 is the grocery dock.
-                - Gate 10 is the cooler/freezer dock.
-### Planned
-                Once the ROL’s are in ‘Assigned’ status, Ant can run the planning process
-                through WMSReceiving(creates unloading list) and puts the appointment into ‘Planned’ status automatically.
-                        
-                        - The appointment ID of a PO can be changed up until pallet building.
-                
-                        - process will fail if there are missing item info, wrong gat, or un-updated LU Type Location.
-                          Process also needs TI/HI, Hazardous, Size/Weight tolerance, free locations.
+- process will fail if there are missing item info, wrong gat, or un-updated LU Type Location.
+        Process also needs TI/HI, Hazardous, Size/Weight tolerance, free locations.
 
-                The planning process, WMSReceiving, creates the Consolidation Order (CO) and links it to the RO.
-                It also creates the Consolidation order line and links it to the ROL.
+The planning process, WMSReceiving, creates the Consolidation Order (CO) and links it to the RO.
+It also creates the Consolidation order line and links it to the ROL.
 
-                Once the PO is planned the CO decides how many pallets are needed to induct the item.
-                The Receivers can start receiving the item after the item reaches the ‘Planned’ status.
+Once the PO is planned the CO decides how many pallets are needed to induct the item.
+The Receivers can start receiving the item after the item reaches the ‘Planned’ status.
 
-                - This process updates wmsOrder and wmsOrderline tables.
-                - mixed pallets(needs work here)
-### Started/Finished
-                When the receiver scans the items, the COL’s status changes to ‘Started’.
-                When the operator finishes scanning the item the COL changes the status to ‘Finished’.
+- This process updates wmsOrder and wmsOrderline tables.
+- mixed pallets(needs work here)
+### **Started**
 
-                - If the Receiving office failed to assign an appointment it can be started from the RF device
+A worker with a RF terminal receives a pallet when he identifies the item (scans the GTIN code) and confirms the quantity, TIHI, etc. After he has done this, he has clearly to mark the pallet as “re-ceived” by applying the generic barcode, so that in the second step a forklift can pick up the pallet and transport the pallet to the next destination. 
+When the DC receives a lot of small loads (less than 1 layer) ANT determines where the locations of the items are and how many items directly go in SCP, SCS, Cig room or a cooler/freezer/non con pick location. Based on the calculation the user has to create unitized pallets for HBW or mixed pal-let, which goes directly to the picking area. 
 
-                The RF Operator scans one of the items verifying the material_ID and amount and submits the wrapping flag on the consolidation order.
 
-                The operator will scan and assign a vendor barcode for the pallet. (is this were the operator slaps the vendor pallet with a barcode?)
+When the receiver scans the items, the COL’s status changes to ‘Started’.
+The RF Operator scans one of the items verifying the material_ID and amount and submits the wrapping flag on the consolidation order.
+The operator will scan a sticker from their barcode roll and assign it vendor barcode for the pallet.
+(mixed pallets, starting an appointment from rf)
 
-                (BELOW NEEDS WORK)
-                
-                The vendor barcode attaches the load unit to the stock and creates the storage order for the stock items.
+The vendor barcode attaches the load unit to the stock and creates the storage order for the stock items.
 
-                the operator has finished receiving the item, it is finished?
-### Finished	
-                Once the pallet is placed on the induction line, the vendor barcode is scanned.
-                If the pallet is on a Chep pallet, it will need to go to the Pallet Exchanger
-                to be exchanged for a system pallet and get the system pallet barcode 
-                assigned to the load unit.
-### Closed (will see on consolidation orders, rol's will be deleted here)
-        The status changes to closed after all the ROL's of a RO are in finished. The appointment is deleted?
+When the operator finishes scanning the item the COL changes the status to ‘Finished’.
+### **Finished**	
+The pallet may be picked up by a forklift and taken to an induction point.
+
+Once the pallet is placed on the induction line, the vendor barcode is scanned.
+If the pallet is on a Chep pallet, it will need to go to the Pallet Exchanger
+to be exchanged for a system pallet and get the system pallet barcode 
+assigned to the load unit.
+### **Closed (will see on consolidation orders, rol's will be deleted here)**
+The status changes to closed after all the ROL's of a RO are in finished. The appointment is deleted with the receiving order and the receiving order line?
 
 
 ---
 
 ## Extra Unorganized INFO 
+
+### Receiving Tables
+<img align="right" width='70%' src="./receivingTables.PNG">
 
 
 
