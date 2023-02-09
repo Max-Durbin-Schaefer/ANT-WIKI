@@ -2,22 +2,23 @@
 
 (also see [Receiving(Area)](/Areas/Receiving/Receiving.md))
 
-The **Receiving** process processes and stores stock from trailers at the [Receiving](/Areas/Receiving/Receiving.md) Area. 
+The **Receiving** process processes and stores stock from trailers at the [Receiving](/Areas/Receiving/Receiving.md) Area into the rest of the warehouse, but mostly into HBW.
 
-# General Receiving
-
-## Terms
-| Term | Definition |
+## Related Terms
+| **Term** | **Definition** |
 |------|------------|
-|**Trailer** | truck that brings stock to receiving area.|
-|**Appointment** | Table for tracking trailer scheduled time, Assigned door. Acts as a parent to **Receiving Order**.|
-|**Receiving Order** | Analogous to **Stops** on loads. Acts as a parent to Receiving Order Line. |
-|
+|*Trailer* | truck that brings stock to receiving area.|
+|*Appointment* | Table for tracking trailer scheduled time, Assigned door. Acts as a parent to *Receiving Order*.|
+|*Receiving Order* | Analogous to **Stops** on loads. Acts as a parent to Receiving Order Line. |
+| *Receiving Order Line* | Represents an amount of material with the same **item_id** and **pick** unit combination. |
+|*item*| material|
+|*Pick Unit*| A type of either Case or Pallet?|
+|*Stock*| An amount of an item/material associated to one load unit|
 
 Each **trailer** has an **Appointment ID** that breaks down into one or more **PurchaseOrders (PO)'s** (usually one).
-The **PO's** are represented by **Receiving Orders** in **ANT** which act as a parent to **Receiving Order Lines** which themselves represent a single **Picking Unit** and **Item ID** combination.
+The **PO's** are represented by **Receiving Orders** in **ANT** which act as a parent to **Receiving Order Lines** which represent a single **Picking Unit** and **Item ID** combination.
 
-**Stock** arriving with the same **Item ID** and **Picking Unit Type** will share a **ROL**
+**Stock** arriving with the same **Item ID** and **Picking Unit Type** will share a **ROL** (Two pallets of the same item will share a **ROL**)
 
 ## Statuses
 Statuses are used to track the progress of an appointment. The Receiving Statuses are first recorded in the RO's.
