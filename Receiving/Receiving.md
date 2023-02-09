@@ -9,8 +9,8 @@ The **Receiving** process processes and stores stock from trailers at the [Recei
 
 | **Term** | **Definition** |
 |------|------------|
-|*Appointment* | Used for tracking a trucks scheduled time and Assigned door. Acts as a parent to *Receiving Order*.|
-|*Receiving Order* | Links to a **Purchase Order** (external). Acts as a parent to Receiving Order Line. |
+|*Appointment* | Used for tracking a trucks scheduled time and Assigned door. <br>Acts as a parent to *Receiving Order*.|
+|*Receiving Order* | Links to a **Purchase Order** (external).<br> Acts as a parent to Receiving Order Line. |
 | *Receiving Order Line* | Represents an amount of material with the same **item_id** and **pick** unit combination. |
 |*item*| material|
 |*Pick Unit*| A type of either Case or Pallet?|
