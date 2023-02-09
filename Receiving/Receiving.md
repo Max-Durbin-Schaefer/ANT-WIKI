@@ -5,7 +5,6 @@
 The **Receiving** process processes and stores stock from trailers at the [Receiving](/Areas/Receiving/Receiving.md) Area into the rest of the warehouse, but mostly into HBW.
 
 ## **Related Terms**
-<img align="right" width='40%' src="./receivingTables.PNG">
 
 | **Term** | **Definition** |
 |------|------------|
