@@ -69,9 +69,12 @@ The Receivers can start receiving the item after the item reaches the ‘Planned
 - mixed pallets(needs work here)
 ### **Started**
 
-A worker with a RF terminal receives a pallet when he identifies the item (scans the GTIN code) and confirms the quantity, TIHI, etc. After he has done this, he has clearly to mark the pallet as “re-ceived” by applying the generic barcode, so that in the second step a forklift can pick up the pallet and transport the pallet to the next destination. 
+A worker with a RF terminal receives a pallet when he identifies the item (scans the GTIN code) and confirms the quantity (less ), TIHI, etc. After he has done this, he has clearly to mark the pallet as “re-ceived” by applying the generic barcode, so that in the second step a forklift can pick up the pallet and transport the pallet to the next destination. 
 When the DC receives a lot of small loads (less than 1 layer) ANT determines where the locations of the items are and how many items directly go in SCP, SCS, Cig room or a cooler/freezer/non con pick location. Based on the calculation the user has to create unitized pallets for HBW or mixed pal-let, which goes directly to the picking area. 
 
+Found in DOW_07_Receiving_workstation..etc
+
+![normal_flow](./normalFlow.PNG)
 
 When the receiver scans the items, the COL’s status changes to ‘Started’.
 The RF Operator scans one of the items verifying the material_ID and amount and submits the wrapping flag on the consolidation order.
@@ -96,8 +99,8 @@ The status changes to closed after all the ROL's of a RO are in finished. The ap
 
 ## Extra Unorganized INFO 
 
-### Receiving Tables
-<img align="right" width='70%' src="./receivingTables.PNG">
+### Receiving Tables <img align="right" width='75%' src="./receivingTables - Copy.drawio.svg">
+
 
 
 
@@ -113,9 +116,7 @@ Received goods are available for replenishment but are not reserved for shipping
 - Quarantine
 - Building Pallets
 
-Found in DOW_07_Receiving_workstation..etc
 
-![normal_flow](./normalFlow.PNG)
 
 # Links
 - [ANT](/ANTWIKI.md)
