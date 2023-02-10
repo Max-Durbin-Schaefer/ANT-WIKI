@@ -37,11 +37,39 @@ Statuses are used to track the progress of an appointment. The Receiving Statuse
 
 ## **Receiving Status + Process Flow**
 
-### **Host Communication (before appointment exists)**
+### **Host Communication (before appointment exists)(needs work)**
 Host sends the data through MQ as POHDR and PODTL to the onsite database.
+
+After a buyer accepts a Purchase Orders the Purchase Order is sent to ANT. After the PU(what is PU in "4.1 buisness use cases.doc?" it's short for the purchase order header to ANT PU_ORDER) order is sent to Ant the order can be updated or canceled. A purchase order will also be sent to ANT when another DC sends product to this DC (unimportant detail)
+
+The host sytem snd the purchase order to the ANT system. A purchase order is split in two parts.
+- Order header (POHDR)
+- Order lines (PODTL)
+
+TO each purchase order belongs one message for the header (POHDR) and one or more messages for the order lines (PODTL).
+
+Each of these messages, telegrams?, contain an ACTION_CODE which contain the information about what the host system want to do with the order. These aciton codes are..
+- "ADD" = add; a new order to new order line is send the first time to ANT.
+- "CHG" = change; the order or order line must be updated with this information.
+- "REP" = replace; the order or order line must be replaced.
+- "DEL" = delte; the order or order line is not longer needed or canceled.
+When the order header has the action indicator "D" the whole order, including order lines, will be deleted.
+(see example telegrams in hostsendTelegrams. Find what table telegrams are proccessed in. What would it look like if we didn't get a telgram here, does that ever happen?)
+there are some statuses that look linked to the telegam.
+buisness use cases also talks about some statuses linked to the purchase order that i can't find. i thought they were linked to the telegrams. (here's what i'm looking at)
+
+![strangestatus](./wierdstatusonpurchaseorder.PNG)
+
+find where this info goes
+
+![deleteaftertakingnotes](./unlodaingatruck.PNG)
+
+
 ### **New**
+RO's and ROl's are created
 The Appointment ID is linked to the Receiving Order whose status begins with new.
 The Receiving Order is also linked to the Receiving Order Lines which show the item and amount that should be received. 
+
 ### **Assigned**
 When a truck arrives the receiving office should update the status
 of the appointment ID(start the appointment ID), so that the RF
