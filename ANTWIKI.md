@@ -1,11 +1,11 @@
 to edit the WIKI see the [read me](ReadMe.md)
 # **Ant**
 
-## Functionality
+## **Functionality**
 
 Ant is a system ran by Schaefer that communicates with [MCL HOST](./MCLHOST/MCLHOST.md) and [Reddwerks](./Reddwerks/Reddwerks.md) to automate the regular functions of a warehouse.
 
-![Alt Text](AntAndSurroundingSystems.png)
+
 
 These general ***functions*** can be broken down into [Receiving](./Receiving/Receiving.md)(both a warehouse function and area), [Replenishment](./Replenishment/Replenishment.md), and [Picking/Shipping](./Picking_Shipping/Picking_Shipping.md).
 
@@ -15,24 +15,23 @@ General ***functions*** can require **Areas** with specific equipment and servic
 
 | Area      | Function | Function : Subfunction breakdown
 | ----------- | ----------- |---------|
-| SCP      | Picking/Shipping <br> Replenishment (De-Layering)  |  - Retrieving Cases (Picking)<br>- Storing Cases (Replenishment)
-| SCS      | Picking/Shipping <br> Replenishment (De-Trash)      |  - Retrieving Inners (Picking)<br> -  Storing Inners (Replenishment)
-| ASRS (HBW)      | Receiving <br> Picking/Shipping (only with shipper pallets) <br> Replenishment (De-Trash or De-Layering)      | - Storing Pallets (Receiving) <br> - Retrieving Shipper Pallets (Picking) <br> - Retrieving Pallets (Replenishment) 
-| Shipping      | Picking/Shipping       |  N/A?
-| Receiving      | Receiving       |    N/A?
-
-
+| [SCP](/Areas/SCP/SCP.md)      | Picking/Shipping <br> Replenishment (De-Layering)  |  - Retrieving Cases (Picking)<br>- Storing Cases (Replenishment)
+| [SCS](/Areas/SCS/SCS.md)      | Picking/Shipping <br> Replenishment (De-Trash)      |  - Retrieving Inners (Picking)<br> -  Storing Inners (Replenishment)
+| [ASRS(HBW)](/Areas/HBW/HBW.md)      | Receiving <br> Picking/Shipping (only with shipper pallets) <br> Replenishment (De-Trash or De-Layering)      | - Storing Pallets (Receiving) <br> - Retrieving Shipper Pallets (Picking) <br> - Retrieving Pallets (Replenishment) 
+| [Shipping](/Areas/Shipping/Shipping.md)      | Picking/Shipping       |  N/A?
+| [Receiving](/Areas/Receiving/Receiving.md)      | Receiving       |    N/A?
 
 <br>
 
 ![Alt Text](./Areas/AreasOverview.png)
 
-
 <br>
 
-## System Breakdown
+## **System Breakdown**
 
 Ant can be divided into the subsystems [WMS](./WMS/WMS.md), [MFS](./MFS/MFS.md), and [PLC](./PLC/PLC.md). These systems work across every **Area** with area-specific services.
+
+![Alt Text](AntAndSurroundingSystems.png)
 
 [WMS](./WMS/WMS.md) (Warehouse Management System) governs Ant at a high level, processing logic behind Ant's core functionality of Receiving, Storage, Replenishment, and Retrieval. It keeps track of data on stock and also creates orders about what should be done with stock.
 
@@ -50,7 +49,8 @@ Ant can be divided into the subsystems [WMS](./WMS/WMS.md), [MFS](./MFS/MFS.md),
 # Links
 - [MCL HOST](./MCLHOST/MCLHOST.md)
 - [Reddwerks](./Reddwerks/Reddwerks.md)
-- [Receiving](./Receiving/Receiving.md)
+- [Receiving(Process)](./Receiving/Receiving.md)
+- [Receiving(Area)](./Areas/Receiving/Receiving.md)
 - [Storage](./Storage/Storage.md)
 - [Replenishment](./Replenishment/Replenishment.md)
 - [Retrieval](./Retrieval/Retrieval.md)

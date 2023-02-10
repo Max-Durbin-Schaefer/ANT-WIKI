@@ -2,20 +2,33 @@
 
 (also see [Receiving(Process)](/Receiving/Receiving.md))
 
-The Receiving Aea (F01 in VISU) is where the main processes of receiving happens, however the pallet loop is also used by other processes like replenishment etc. 
+The Receiving Aea (F01 in VISU) is used to unload trucks arriving to the warehouse with stock.
+
+Sub-areas and workstations include (maybe include location)
+
+|Sub-Area/Workstation|location|function|
+|-|-|-|
+|Pallet loop|N/A|Moves Pallets for ANT|
+|Teach In Stations|N/A|Allows operator to create new Materials|
+|Wrappers|*PRS01DP01*, *PRS01DP03*, *PRS02DP01*, *PRS02DP03*|Wraps Pallets in plastic, Moves Pallets sheet|
+|Pallet Stacker||Takes and distributes System Pallets (to what? a forklift?)|
+|Exchanger|*PRS01PX01*, *PRS01PX02*, *PRS02PX01*, *PRS02PX02*|Moves Stock from Vendor Pallet to System Pallet|
+|Induction Point||Accepts a Vendor_Pallet of Stock into the system in Receiving(Process)|
+|Pallet Hospital||Used to fix unexpected problems with Pallets|
+
+![Alt Text](./ReceivingArea.png)
+
+While partially located in Receiving the pallet loop is used outside of the Receiving process for each general function of ant.
+
+(include significant locations of the pallet loop)
+
+Wrappers
+
 
 Receiving includes part of the pallet loop which a pallet may be on for processes unrelated to the receiving process like replenishing De-Layering/De-Trash or it could be going to shipping as a shipper pallet. A pallet could also be storing after replenishment is complete. The area is used to move stock involved in many processes other than the Receiving(WarehouseFunction) Process.
 
-The sub-areas of Receiving are..
-- the pallet loop
-- teach in stations (teach in process)
-- Wrappers
-- Pallet Stacker
-- Exchangers
-- Induction points (induction process)
-- Pallet Hospital
 
-![Alt Text](./ReceivingArea.png)
+
 
 processes described in [Receiving(WarehouseFunction)](/Receiving/Receiving.md).
 
