@@ -99,7 +99,7 @@ The status changes to closed after all the ROL's of a RO are in finished. The ap
 
 ## Extra Unorganized INFO 
 
-### Receiving Tables <img align="right" width='75%' src="./receivingTables - Copy.drawio.png">
+
 
 Received goods are available for replenishment but are not reserved for shipping (billing) until the corresponding PO is closed and the stock is confirmed to McLane. 
 
