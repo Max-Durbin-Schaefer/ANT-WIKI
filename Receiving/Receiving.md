@@ -99,9 +99,9 @@ The status changes to closed after all the ROL's of a RO are in finished. The ap
 
 ## Extra Unorganized INFO 
 
-### Receiving Tables <img align="right" width='75%' src="./receivingTables - Copy.drawio.svg">
+### Receiving Tables <img align="right" width='75%' src="./receivingTables - Copy.drawio.png">
 
-![chec](./receivingTables%20-%20Copy.drawio.svg)
+![chec](./receivingTables%20-%20Copy.drawio.png)
 
 
 
