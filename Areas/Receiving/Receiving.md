@@ -6,21 +6,23 @@ The Receiving Aea (F01 in VISU) is used to unload trucks arriving to the warehou
 
 Sub-areas and workstations include (maybe include location)
 
-|Sub-Area/Workstation|location|function|
+|Notable Locations|location|function|
 |-|-|-|
 |Pallet loop|N/A|Moves Pallets for ANT|
 |Teach In Stations|N/A|Allows operator to create new Materials|
 |Wrappers|*PRS01DP01*, *PRS01DP03*, *PRS02DP01*, *PRS02DP03*|Wraps Pallets in plastic, Moves Pallets sheet|
 |Pallet Stacker||Takes and distributes System Pallets (to what? a forklift?)|
 |Exchanger|*PRS01PX01*, *PRS01PX02*, *PRS02PX01*, *PRS02PX02*|Moves Stock from Vendor Pallet to System Pallet|
-|Induction Point||Accepts a Vendor_Pallet of Stock into the system in Receiving(Process)|
-|Pallet Hospital||Used to fix unexpected problems with Pallets|
+|Induction Point|*PRS01SR01*, *PRS01SR02*, *PRS02SR01*, *PRS02SR02*|Accepts a Vendor_Pallet of Stock into the system in Receiving(Process) (are there actually 4 or are 2 of these for exit only?)|
+|Pallet Hospital|*PNO01WP01*, *PNO02WP01*, *PNO01RP01(exit)*, *PNO02RP01(exit)*|Used to fix unexpected problems with Pallets|
 
 ![Alt Text](./ReceivingArea.png)
 
 While partially located in Receiving the pallet loop is used outside of the Receiving process for each general function of ant.
 
 (include significant locations of the pallet loop)
+
+(draw the specific locations and also include the general flow of conveyors)
 
 Wrappers
 
