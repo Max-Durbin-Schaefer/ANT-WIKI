@@ -8,7 +8,7 @@ Sub-areas and workstations include (maybe include location)
 
 |Notable Locations|location|function|
 |-|-|-|
-|Pallet loop|N/A|Moves Pallets for ANT|
+|Pallet loop|N/A|Moves Pallets for ANT, Pallets flow counter clockwise|
 |Teach In Stations|N/A|Allows operator to create new Materials|
 |Wrappers|*PRS01DP01*, *PRS01DP03*, *PRS02DP01*, *PRS02DP03*|Wraps Pallets in plastic, Moves Pallets sheet|
 |Pallet Stacker||Takes and distributes System Pallets (to what? a forklift?)|

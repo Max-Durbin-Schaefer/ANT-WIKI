@@ -1,0 +1,37 @@
+-	Carousels – Tub Storage	 
+    - Tubs all start with 4
+    - Tubs are white
+    - 4 Tub Storage Modules with 6 carousels in each mod.  
+        - Referred to as: Mod1, Mod2, Mod3, Mod4 
+    - Naming convention for carousel storage locations:
+        - SRZ (mod number)C (carousel number) X(3digits)Y(2digits)
+            -	Just like a graph X is horizontal and Y is vertical
+        - Example: SRZ2C1X042Y11
+    - Visu Area location – Top level
+    - C12 – Mod1, Mod2
+    - C13 – Mod3, Mod4
+- Buffer - tote storage before releasing to shipping/dock door.
+    - five carousels in the buffer
+    - same naming convention as tub storage locations only use 5 for the mod number
+    - Visu Area location - Bottom level c14
+- Tub Hospital
+    - Virtual location in Detrash  - BGG10VP0111
+    - This is virtual point that tubs will go to. Once they reach the point the system will send it to the first available space.
+- Tote Audit
+    - Totes go here if the weight is over/under the expected weight or if there are any other issues detected be the system.
+    - Location: BSB02WP0111
+- SCS Picking stations
+    - 3 pick stations per mod
+    - Naming convention: PTT (mod number)(station number)
+        - PTT11, PTT12, PTT13
+    - Each pick station has 7 tote pick slots
+        - SL0111, SL0211, SL0311, SL0411, SL0511, SL0611, SL0711
+- Tub pick location at picking station
+    - Naming convention: BPT(pick station)WP0111
+    - BPT12WP0111
+- Tub pick location before the pick location
+    - Naming convention: BPT(pick station)BP0111
+    - BPT12BP0111
+- Tote pick station location naming convention:
+    - BPT(pick station number)(pick slot)
+    - BPT12SL0211
