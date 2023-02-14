@@ -13,8 +13,8 @@ Delayering is a subarea of SCP
 |Storage Rack||Where cases sit|
 |Sts's||Reaches any location of it's storage racks to retrieve/store a tray,<br> can pass/get trays from Case Wheelers via TPA/TGA locations|
 |TPA/TGA/TRA locations||(TPA/TGA) Locations on the racks used mutually between case wheelers and <br>sts's to send/receive trays of cases. (TRA) Locations used to store Trays.|
-|Case Wheelers| *example CWL1151* 1st # = mod. 2nd # = side. 3rd # = 5 (idk). 4rth # = front to back 1 through 6|Interacts with Sts's via TPA/TGA locations to move trays of product to Outfeed Conveyor.<br> Wheels cases onto Outfeed Conveyor. (6 per side, 24 total)|
-|Outfeed Conveyors|CWOC####|Passes product from Case wheeler to Window Conveyor|
+|Case Wheelers| *example CWL1151* (1st num = mod)(2nd num = side)(3rd num = 5 (idk))(4rth num = front to back 1 through 6)|Interacts with Sts's via TPA/TGA locations to move trays of product to Outfeed Conveyor.<br> Wheels cases onto Outfeed Conveyor. (6 per side, 24 total)|
+|Outfeed Conveyors/Outlet Conveyors|*example CWOC1101* (1st num = mod)(2nd num = level)(3rd & 4th num = order front to back(even = side 1, odd = side 2))|Passes product from Case wheeler to Window Conveyor|
 |Window Conveyors|Mod1(1100, 1200, 1300),<br>Mod2(2100,2200,2300)|carries product from Outfeed Conveyors Through OS Stations, Logo Pack, and finally to the Merge Point|
 |OS Stations|can't find|Confirms material/article? Orientation and that there is only one case|
 |Logo Pack|can't find|Label the cases with barcodes so they can be tracked with scanners across conveyors|
@@ -53,7 +53,7 @@ Metal Frame containing many storage spaces for trays (tra locations) and (TGA/TP
 ![tra location](./locationAnt.PNG)
 
 TRA - denotes a storage location.\
-1206 - the sts associated to a rack, 3rd digit is always 0 for the rack, if it were one the 4 digits refer to the sts in the rack.\
+1206 - the sts associated to a rack, 3rd digit is always 0 for the rack.\
 X006 - horizontal position on rack\
 Y01 - vertical position on rack\
 Z11 - side
@@ -64,6 +64,7 @@ Y columns can't just go from 1-26, these positions need to account for the heigh
 
 *Example taken from ant*\
 ![tpa location](./tpalocaiton.PNG)
+
 TPA/TGA - denotes a put/get location.\
 1106 - the sts associated to the rack. 3rd digit always 0.\
 Y03 - y position, see all y positions below.\
