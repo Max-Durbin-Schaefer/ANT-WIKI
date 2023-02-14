@@ -41,7 +41,7 @@ Visu (side view) of SCP
 
 <br>
 
-# **Naming Conventions**
+# **Sub Areas and Equipment Continued**
 ## **Rack**
 Metal Frame containing many storage spaces for trays (tra locations) and (TGA/TPA) locations for passing them between case wheelers. Racks also include an empty isle within themselves for an STS to travel.
 
