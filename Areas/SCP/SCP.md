@@ -13,7 +13,7 @@ Delayering is a subarea of SCP
 |Storage Rack||Where cases sit|
 |Sts's||Reaches any location of it's storage racks to retrieve/store a tray,<br> can pass/get trays from Case Wheelers via TPA/TGA locations|
 |TPA/TGA/TRA locations||(TPA/TGA) Locations on the racks used mutually between case wheelers and <br>sts's to send/receive trays of cases. (TRA) Locations used to store Trays.|
-|Case Wheelers|Mod 1 \ Side 1: begins with 11## <br> Mod 1 \ Side 2: begins with 12## <br> Mod 2 \ Side 1: begins with 21##<br>Mod 2 \ side 2: begins with 22##<br>(Labeled in Top down view)|Interacts with Sts's via TPA/TGA locations to move trays of product to Outfeed Conveyor.<br> Wheels cases onto Outfeed Conveyor. (6 per side, 24 total)|
+|Case Wheelers| *example CWL1151* 1st # = mod. 2nd # = side. 3rd # = 5 (idk). 4rth # = front to back 1 through 6|Interacts with Sts's via TPA/TGA locations to move trays of product to Outfeed Conveyor.<br> Wheels cases onto Outfeed Conveyor. (6 per side, 24 total)|
 |Outfeed Conveyors|CWOC####|Passes product from Case wheeler to Window Conveyor|
 |Window Conveyors|Mod1(1100, 1200, 1300),<br>Mod2(2100,2200,2300)|carries product from Outfeed Conveyors Through OS Stations, Logo Pack, and finally to the Merge Point|
 |OS Stations|can't find|Confirms material/article? Orientation and that there is only one case|
