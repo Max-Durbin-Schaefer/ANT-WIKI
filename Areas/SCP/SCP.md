@@ -112,7 +112,7 @@ Controllers.
 
 
 ## **Problem: double allocation**
-### **Problem: description** 
+### **Problem description** 
 - door stops working
 - crashed CPAISArea2110 controller for that window conveyor. 
 - exception on controller "Found more than one case for one allocation at location CPAOS2110: [case barcode date, case barcode date]"
@@ -131,46 +131,38 @@ Lastly restart OS station.
 <br>
 
 ## **Problem: Physical and Logical conflict on outfeed**
-### **Problem: description**
+### **Problem description**
 - door stops working
 - case visualization different from VISU logic physical disconnect book 
-### **Solution**
-Book case to window conveyor in case visualization 
-Make sure the case makes it onto the window conveyor
-
-## **Problem: No Button on OS Station**
-### **Problem: description**
-- no buttons on os station
-### **Solution**
-
+### **Solution: Book Problem Case to Window Conveyor**
+Book case to window conveyor in case visualization.
+Then make sure the case makes it onto the window conveyor physically.
 
 <br>
-no buttons on os station
-sequence number important
-follow these instructions
 
---Clean up Case REquest/data for SCP
+## **Problem: No Button on OS Station**
+### **Problem description**
+- no buttons on os station
+### **Solution:**
+-Clean up Case Request/data for SCP
 
 Use when operator confirms a manual handling for more cases than should have been confirmed.
 The cases will show as a "Wheeled Too Much" but will not have F9-Remove Case option available.
 Missing Case does not remove the case from the line up.
 
+1. From Window Conveyor Overview
+    - Get the Order ID number
+    - Get the Sequence number from the Details box on the side
+2. Pack Order Overview
+    - Search by: Order ID number
+    - Go to the bottom of the lower window and look for the sequence numbers
+    - Highlight each number and choose 'Cleanup Case Request' button at the top
 
+<br>
 
-
--Start, Case Packing Area, Window Conveyor Overview
-    -Get the Order ID number
-    -Get the Sequence number from the Details box on the side
-    Then go to: Start Case Packing Area, Pack Order Overview
-        -Search by: Order ID number
-            -Go to the bottom of the lower window and look for the sequence numbers
-                -Highlight each number and choose 'Cleanup Case Request' button at the top
+#### ***OR/AND***
                 
-                
-                
-                Or/AND
-                
---Wheel too much with no buttons in OS station.
+***If Wheel too Much With no Buttons in OS Station.***
 
 Run query on PRD: 
 
@@ -179,18 +171,20 @@ select os.rowid, os.* from cpaossituation os;
 ```
 
 
--in the query results: Lines 1 = OS11, 2 = OS12, 3 = OS13,  4 = OS21 5= OS22  6 = OS23
--The rowid needs to be in the query in order to edit it.
--Look at Columns DRT_Dialogrequestid, DRT_RequestTime, DRT_ResolveTime, DRT_VerificationError, and VisionImagePath for the OS with the issue.
--Delete only the data that is in the columns of the OS with the issue. 
--Where there is no data for the other OS's.  
--Unlock, delete data with requirements from above, Green Check Mark, Lock, then Commit
--May have to push the case back and let it re-enter the OS to completely fix it.
+- in the query results: Lines 1 = OS11, 2 = OS12, 3 = OS13,  4 = OS21 5= OS22  6 = OS23
+- (select rowid allows editing)
+- Look at Columns DRT_Dialogrequestid, DRT_RequestTime, DRT_ResolveTime, DRT_VerificationError, and VisionImagePath for the OS with the issue.
+- Delete only the data that is in the columns of the OS with the issue. 
+- Where there is no data for the other OS's.  
+- When Deleting : 
+    - Unlock, delete data with requirements from above, Green Check Mark, Lock, then Commit
+- May have to push the case back and let it re-enter the OS to completely fix it.
 
+<br>
 
-**option 3**
+ ### ***When First Solution Doesn't Work***
 
-***if case before OS run:***
+- ***If Case Before OS Run:***
 ```sql
 select r.rowid, 
     r.sequencenumber
@@ -202,7 +196,7 @@ AND pickedcase_id = 1623318807755;
 so I used this to find the duplicate sequence within the case request dialog. 
 TO address it I found the one that was supposed to be in the OS and changed it to higher than the highest sequence number for that order
 
-***if case after OS run:***
+- ***If Case After OS Run:***
 ```sql
 select r.rowid, 
     r.sequencenumber, r.*
