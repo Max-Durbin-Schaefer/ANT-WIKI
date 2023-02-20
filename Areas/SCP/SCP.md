@@ -158,8 +158,6 @@ Missing Case does not remove the case from the line up.
     - Go to the bottom of the lower window and look for the sequence numbers
     - Highlight each number and choose 'Cleanup Case Request' button at the top
 
-<br>
-
 #### ***OR/AND***
                 
 ***If Wheel too Much With no Buttons in OS Station.***
@@ -179,8 +177,6 @@ select os.rowid, os.* from cpaossituation os;
 - When Deleting : 
     - Unlock, delete data with requirements from above, Green Check Mark, Lock, then Commit
 - May have to push the case back and let it re-enter the OS to completely fix it.
-
-<br>
 
  ### ***When First Solution Doesn't Work***
 
