@@ -111,28 +111,31 @@ OS stations dialog.
 Controllers.
 
 
-## **double allocation**
-### **Problem:** 
+## **Problem: double allocation**
+### **Problem: description** 
+- door stops working
 - crashed CPAISArea2110 controller for that window conveyor. 
 - exception on controller "Found more than one case for one allocation at location CPAOS2110: [case barcode date, case barcode date]"
 
 ### **Solution: use "Book case to NOK" button on case not physically in OS**
-Of the cases listed in the exception identify which one is actually in the OS station.
-To identify which case is in the OS station you can either ask the operator or go to Orientation Station Overview and click into the dialog and visually identify the material in the image at the top right.
-|OrientationStation|WindowConveyorSequence|
+1.  Of the cases listed in the exception identify which is in the OS station through the "Orientation Station Overview" or an OS Operator.
+2.  Find that material in the "Window Conveyer Overview"
+3.  Book the **OTHER** material to NOK using "Book case to NOK" button.
+
+|Visually identify material in "Orientation Station Overview"|Find material in "Window Conveyor Overview" and use "Book case to NOK" on other material|
 |-|-|
 |![OrientationStation](./OrientationStationOverview.PNG)|![WindowConveyerSequence](./WindowConveryorOverviewDA.PNG)|
-
-
-
-
-
-book case (? we do the case not in os station right?) to NOK button shrug.
-restart os station and controller by proxy
+Lastly restart OS station.
 
 <br>
-case visualization different from VISU logic physical disconnect
-book to window conveyor in case visualization
+
+## **Problem: Physical and Logical conflict on outfeed**
+### **Problem: description**
+- door stops working
+- case visualization different from VISU logic physical disconnect book 
+### **Solution**
+Book case to window conveyor in case visualization 
+Make sure the case makes it onto the window conveyor
 
 <br>
 no buttons on os station
