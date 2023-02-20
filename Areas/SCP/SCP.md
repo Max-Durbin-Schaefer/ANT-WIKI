@@ -90,9 +90,115 @@ STS can only **GET** a tray in this location, a case wheeler can place a tray he
 
 ## **STS's**
  - Naming conventions on STS's and forks, how far can forks reach
+ STS's in material flow
+ - start with TS
+ - name of STS 3rd digit is 1
+ - fork position as FP
+
+ these are material flow points
+
 ## **Case Wheelers**
  - Naming conventions, sub component breakdown
-## **Unorganized**
+
+<br>
+
+# **To add**
 Tray Hospital 1 - TDL01WP01
 Tray Hospital 2 - TDL02WP01
-A place that talks about the distinction between locations in MFS and WMS.
+A place that talks about the distinction between locations in MFS and WMS. (especially important with locks) but not on this page
+OS stations.
+OS stations dialog.
+Controllers.
+
+
+## **double allocation**
+### **Problem:** 
+- crashed CPAISArea2110 controller for that window conveyor. 
+- exception on controller "Found more than one case for one allocation at location CPAOS2110: [case barcode date, case barcode date]"
+
+### **Solution: use "Book case to NOK" button on case not physically in OS**
+Of the cases listed in the exception identify which one is actually in the OS station.
+To identify which case is in the OS station you can either ask the operator or go to Orientation Station Overview and click into the dialog and visually identify the material in the image at the top right.
+|OrientationStation|WindowConveyorSequence|
+|-|-|
+|![OrientationStation](./OrientationStationOverview.PNG)|![WindowConveyerSequence](./WindowConveryorOverviewDA.PNG)|
+
+
+
+
+
+book case (? we do the case not in os station right?) to NOK button shrug.
+restart os station and controller by proxy
+
+<br>
+case visualization different from VISU logic physical disconnect
+book to window conveyor in case visualization
+
+<br>
+no buttons on os station
+sequence number important
+follow these instructions
+
+        --Clean up Case REquest/data for SCP
+
+        Use when operator confirms a manual handling for more cases than should have been confirmed.
+        The cases will show as a "Wheeled Too Much" but will not have F9-Remove Case option available.
+        Missing Case does not remove the case from the line up.
+
+
+
+
+        -Start, Case Packing Area, Window Conveyor Overview
+            -Get the Order ID number
+            -Get the Sequence number from the Details box on the side
+            Then go to: Start Case Packing Area, Pack Order Overview
+                -Search by: Order ID number
+                    -Go to the bottom of the lower window and look for the sequence numbers
+                        -Highlight each number and choose 'Cleanup Case Request' button at the top
+                        
+                        
+                        
+                        Or/AND
+                        
+        --Wheel too much with no buttons in OS station.
+
+        Run query on PRD: select os.rowid, os.* from cpaossituation os;
+
+
+        -in the query results: Lines 1 = OS11, 2 = OS12, 3 = OS13,  4 = OS21 5= OS22  6 = OS23
+        -The rowid needs to be in the query in order to edit it.
+        -Look at Columns DRT_Dialogrequestid, DRT_RequestTime, DRT_ResolveTime, DRT_VerificationError, and VisionImagePath for the OS with the issue.
+        -Delete only the data that is in the columns of the OS with the issue. 
+        -Where there is no data for the other OS's.  
+        -Unlock, delete data with requirements from above, Green Check Mark, Lock, then Commit
+        -May have to push the case back and let it re-enter the OS to completely fix it.
+
+        
+        option 3				
+        -- case before OS - 
+        select r.rowid, 
+            r.sequencenumber
+        FROM scmcaserequest r
+        WHERE sequencenumber = '2260' -- 2507
+        AND pickedcase_id = 1623318807755;
+
+
+        so I used this to find the duplicate sequence within the case request dialog. 
+        TO address it I found the one that was supposed to be in the OS and changed it to higher than the highes sequence number for that order
+
+
+        or use
+        --case after OS
+
+        select r.rowid, 
+            r.sequencenumber, r.*
+        FROM spmcaserequest r
+            where r.sequencenumber = '105'
+            order by r.packorder_id --look for duplicate pack order id's -- look for X, Y, Z  diminsions to match case  - delete this row
+
+
+
+I did all the things your supposed to do. I make significantly more than whats average for my age, and in a state where making money is hard in general.
+I maintained and i'm even creating new relationships with my family members. Look at me now, I went away to make money, to have a "career."
+I have never been more alone in my life than I am now.
+better jealousy than envy, lol. Maybe later it'll be inspiration. 
