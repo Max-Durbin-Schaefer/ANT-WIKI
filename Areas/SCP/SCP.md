@@ -10,10 +10,10 @@ Delayering is a subarea of SCP
 |-|-|-|
 |Mod|Left = Mod 1, Right = Mod 2|SCP has a Mod 1 and Mod 2|
 |Side|Left is Side 1 Right is Side 2|6 STSes|
-|Storage Rack||Where cases sit|
-|Sts's||Reaches any location of it's storage racks to retrieve/store a tray,<br> can pass/get trays from Case Wheelers via TPA/TGA locations|
-|TPA/TGA/TRA locations||(TPA/TGA) Locations on the racks used mutually between case wheelers and <br>sts's to send/receive trays of cases. (TRA) Locations used to store Trays.|
-|Case Wheelers| *example CWL1151* (1st num = mod)(2nd num = side)(3rd num = 5 (idk))(4rth num = front to back 1 through 6)|Interacts with Sts's via TPA/TGA locations to move trays of product to Outfeed Conveyor.<br> Wheels cases onto Outfeed Conveyor. (6 per side, 24 total)|
+|[Storage Rack](#rack)||Where cases sit|
+|[STS's](#stss)||Reaches any location of it's storage racks to retrieve/store a tray,<br> can pass/get trays from Case Wheelers via TPA/TGA locations|
+|[TPA/TGA/TRA locations](#tpatga-locations)||(TPA/TGA) Locations on the racks used mutually between case wheelers and <br>sts's to send/receive trays of cases. (TRA) Locations used to store Trays.|
+|[Case Wheelers](#case-wheelers)| *example CWL1151* (1st num = mod)(2nd num = side)(3rd num = 5 (idk))(4rth num = front to back 1 through 6)|Interacts with Sts's via TPA/TGA locations to move trays of product to Outfeed Conveyor.<br> Wheels cases onto Outfeed Conveyor. (6 per side, 24 total)|
 |Outfeed Conveyors/Outlet Conveyors|*example CWOC1101* (1st num = mod)(2nd num = level)(3rd & 4th num = order front to back(even = side 1, odd = side 2))|Passes product from Case wheeler to Window Conveyor|
 |Window Conveyors|Mod1(1100, 1200, 1300),<br>Mod2(2100,2200,2300)|carries product from Outfeed Conveyors Through OS Stations, Logo Pack, and finally to the Merge Point|
 |OS Stations|can't find|Confirms material/article? Orientation and that there is only one case|
@@ -103,16 +103,17 @@ STS can only **GET** a tray in this location, a case wheeler can place a tray he
 <br>
 
 # **To add**
-Tray Hospital 1 - TDL01WP01 delayering
-Tray Hospital 2 - TDL02WP01 delayering
-A place that talks about the distinction between locations in MFS and WMS. (especially important with locks) but not on this page
-OS stations.
-OS stations dialog.
-Controllers.
-tray storage module, TSM01TS12 TSM01 and TSM02
-replenishment lifts
-robots
-backpack
+- Tray Hospital 1 - TDL01WP01 delayering
+- Tray Hospital 2 - TDL02WP01 delayering
+- A place that talks about the distinction between locations in MFS and WMS. (especially important with locks) but not on this page
+- OS stations.
+- OS stations dialog.
+- Controllers.
+- tray storage module, TSM01TS12 TSM01 and TSM02 idk what this is
+- tray stacker TDL00TS01, TDL00TS02
+- replenishment lifts
+- robots
+- backpack
 
 
 ## **Problem: double allocation**
@@ -151,6 +152,7 @@ Then make sure the case makes it onto the window conveyor physically, may need a
 ## **Problem: No Button on OS Station**
 ### **Problem description**
 - no buttons on os station
+- data remains in the columns mentioned below on the table cpaossituation, these columns should be empty or changing.
 ### **Solution:**
 -Clean up Case Request/data for SCP
 
