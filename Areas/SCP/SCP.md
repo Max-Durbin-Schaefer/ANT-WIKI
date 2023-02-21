@@ -178,7 +178,7 @@ select os.rowid, os.* from cpaossituation os;
     - Unlock, delete data with requirements from above, Green Check Mark, Lock, then Commit
 - May have to push the case back and let it re-enter the OS to completely fix it.
 
- ### ***When First Solution Doesn't Work***
+ #### ***When First Solution Doesn't Work***
 
 - ***If Case Before OS Run:***
 ```sql
