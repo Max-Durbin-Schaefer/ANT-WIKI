@@ -103,12 +103,16 @@ STS can only **GET** a tray in this location, a case wheeler can place a tray he
 <br>
 
 # **To add**
-Tray Hospital 1 - TDL01WP01
-Tray Hospital 2 - TDL02WP01
+Tray Hospital 1 - TDL01WP01 delayering
+Tray Hospital 2 - TDL02WP01 delayering
 A place that talks about the distinction between locations in MFS and WMS. (especially important with locks) but not on this page
 OS stations.
 OS stations dialog.
 Controllers.
+tray storage module, TSM01TS12 TSM01 and TSM02
+replenishment lifts
+robots
+backpack
 
 
 ## **Problem: double allocation**
