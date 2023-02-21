@@ -133,10 +133,14 @@ Lastly restart OS station.
 ## **Problem: Physical and Logical conflict on outfeed**
 ### **Problem description**
 - door stops working
-- case visualization different from VISU logic physical disconnect book 
+- case visualization dialog will be different from VISU verifying logic physical disconnect.
+
+|Case Visualization|VISU|
+|-|-|
+|![](./WindowConveyerAnt.PNG)|![](./WindowVonceyerVISU.PNG)|
 ### **Solution: Book Problem Case to Window Conveyor**
-Book case to window conveyor in case visualization.
-Then make sure the case makes it onto the window conveyor physically.
+Book case to window conveyor in case visualization using button on case visualization screen.
+Then make sure the case makes it onto the window conveyor physically, may need an operator to physical push/(go into manual mode idk).
 
 <br>
 
