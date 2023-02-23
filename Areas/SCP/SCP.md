@@ -100,6 +100,8 @@ STS can only **GET** a tray in this location, a case wheeler can place a tray he
 ## **Case Wheelers**
  - Naming conventions, sub component breakdown
 
+
+
 <br>
 
 # **To add**
@@ -114,6 +116,9 @@ STS can only **GET** a tray in this location, a case wheeler can place a tray he
 - replenishment lifts
 - robots
 - backpack
+- merge point
+- what makes case wheelers move? I see transport orders on ant dialog that moves trays between flow points and storage locations etc. What prompts these? what table are they in?
+    - these transport orders are located in the mfstransportorder table and are 
 
 
 ## **Problem: double allocation**
