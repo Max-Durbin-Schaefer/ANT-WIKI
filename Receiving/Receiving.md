@@ -141,6 +141,22 @@ Received goods are available for replenishment but are not reserved for shipping
 - Quarantine
 - Building Pallets
 
+<br>
+
+# To Add : Problems
+## **Problem: Replan Appt button not working**
+ sometimes the people who call themselves receiving(is there an office? idk) need to replan an appointment but the button doesn't work.
+ ![replanAppt](./ReplanAppt.PNG)
+ I don't understand why, hopefully this is explained later. Anyways Colin gave me this info.
+
+        "if the button doesn't work it generally means that there is a mixed pallet that is causing issues. so you check the COs that are not set as unitized"
+
+        "any of the COs that are in started status need to be checked. Normally there were will at least 1 COL in FINISHED and the rest in new. delete the NEW status lines and set the CO to FINISHED. once that is done the button should work."
+
+        "any that have a Load unit, but aren't finished or new"
+Afterwards the button will work like normal.
+
+Seeing as the planning stage generates the co's and col's these changes arn't actually doing things. 
 
 
 # Links
