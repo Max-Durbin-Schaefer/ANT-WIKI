@@ -158,6 +158,14 @@ Afterwards the button will work like normal.
 
 Seeing as the planning stage generates the co's and col's these changes arn't actually doing things. 
 
+<br>
+
+## **Problem: "P.O.s Staying in Assigned Status and Receivers are not Able to Close Them"**
+
+![posnoclos](./POSnoClose.PNG)
+
+
+<br>
 
 # Links
 - [ANT](/ANTWIKI.md)
