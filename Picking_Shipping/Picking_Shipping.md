@@ -3,7 +3,7 @@
 
 Services are looping programs. They follow the same series of instructions over and over. These instructions are broken into funcitons. Each function logs that it has been called and the actions it takes if any. Often the conditions for the body of the functions are not met and nothing happens.
 
-SCPPickingservice appears to manage transport orders for SCP (mfstransportorder), it also generates some scp picking orders but every single one says canceled. Maybe it just updates picking orders that can't be completed so others can be generated (there is no updated by field). I don't know.
+**SCPPickingService** appears to manage transport orders for **SCP** (mfstransportorder), it also generates some scp picking orders but every single one says canceled. Maybe it just updates picking orders that can't be completed so others can be generated (there is no updated by field). I don't know.
 
 Many functions of the service run differently, or not at all, depending on conditions. How can I classify these different cases when the ways they run are undocumented to me. Can I recorded the different kinds of cases by scraping?
 
@@ -19,7 +19,7 @@ I don't know what happens first but they happen in this order.
     - It would give these trays multiple transport orders? why?
 
 
-- f cache scp merge point sequence new       - just swapped places from below doesn't always appear in same place. :( seems like this isn't a program main loop maybe?
+- f cache scp merge point sequence new - just swapped places from below doesn't always appear in same place. : (seems like this isn't a program main loop maybe?)
     - idk. it often runs in a random order.
     - i don't think the data below is actually connected to it. I think it's actually apart of the data itself. It seems to be able to eb called by any major function and is called by one and only one per loop. However it may be called by different functions.
 
